@@ -12,7 +12,7 @@ namespace EqCrm.Controllers
 {
     public class ConsultaOrdenServicioTallerController : Controller
     {
-        // GET: OrdenTecnicaMod
+        // GET: OrdenTecnicaMod Oscar
         public ActionResult ConsultaOrdenServicioTaller()
         {
             if (string.IsNullOrEmpty((string)this.Session["Usuario"]))
