@@ -1,8 +1,0 @@
-﻿.detalleVenta {
-    display: inline-table !important;
-}
-@media only screen and (max-width: 600px) {
-    .detalleVenta {
-        display:block !important;
-    }   
-}
