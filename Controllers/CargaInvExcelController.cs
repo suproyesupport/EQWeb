@@ -13,6 +13,8 @@ using System.IO;
 using System.Data;
 using EqCrm.Models;
 
+//Carga de inventario
+
 namespace EqCrm.Controllers
 {
     public class CargaInvExcelController : Controller
