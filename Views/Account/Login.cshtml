@@ -90,17 +90,25 @@
         Name = $("input:text[name=Name]").val();
         Password = $("input:password[name=Password]").val();
 
-        if (Name == "") {
-            $('#Error').html("Por favor ingrese un usuario");
-            $('#ModalError').modal('show');
+        // Selecciona el elemento con el ID 'miElemento'
+        var elemento = document.querySelector('#Mensaje');
+
+        
+
+        
+
+        if (Name == "" || Password == "") {
+            elemento.style.display = 'block';
+            elemento.style.color = 'red';
+            elemento.innerText = 'Favor no dejar ningún campo vacío';
             return;
         }
 
-        if (Password == "") {
-            $('#Error').html("El Pasword no puede estar vacio");
-            $('#ModalError').modal('show');
-            return;
-        }
+        //if (Password == "") {
+        //    $('#Error').html("El Pasword no puede estar vacio");
+        //    $('#ModalError').modal('show');
+        //    return;
+        //}
 
         $.ajax({
             async: true,
@@ -120,8 +128,11 @@
                         //window.location = "@Url.Action("Empresas","Empresas", new { name = "+   Name  +"})";
                     }
                     else {
-                        $('#Error').html(response.OBS);
-                        $('#ModalError').modal('show');
+                        //$('#Error').html(response.OBS);
+                        //$('#ModalError').modal('show');
+                        elemento.style.display = 'block';
+                        elemento.style.color = 'red';
+                        elemento.innerText = 'Datos inválidos ';
                         return;
                     }
                 }
@@ -310,24 +321,17 @@
 
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-5 col-xl-4 ml-auto">
-                                <h1 class="text-white fw-300 mb-3 d-sm-block d-md-none">
-                                    Secure login
-                                </h1>
+                                
                                 <div class="card p-4 rounded-plus bg-faded">
-                                    @*<form id="js-login" novalidate="" action="intel_analytics_dashboard.html">*@
+                                    <span id="Mensaje" class="help-block" style="display:none">
+                                    </span>
                                     <div class="form-group">
                                         <label class="form-label" for="username">Usuario</label>
                                         <input id="Name" name="Name" class="form-control form-control-lg" placeholder="">
-                                        <span class="help-block">
-                                            El Usuario no puede estar vacio.
-                                        </span>
                                     </div>
                                     <div class="form-group">
                                         <label id="labelpassword" class="form-label" for="password">Contraseña</label>
                                         <input type="password" id="Password" name="Password" class="form-control form-control-lg" placeholder="" onkeydown="onKeyEnter(event);">
-                                        <span class="help-block">
-                                            El Password no puede estar vacio.
-                                        </span>
                                     </div>
                                     <div class="form-group">
                                         <label id="NewPassword2" class="form-label" for="password">Confirmar contraseña</label>
@@ -457,68 +461,4 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
