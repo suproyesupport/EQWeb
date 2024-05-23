@@ -207,7 +207,28 @@ namespace EqCrm
         }
 
 
+        public bool DamePermisosAppDapper(string nCodigo, string cRol)
+        {
+            // Generamos la cadena de conexión
+            ConexionMySQL conexionMySql = new ConexionMySQL();
+            string connectionString = conexionMySql.generarStringDlempresa();
 
+            // Consulta SQL utilizando parámetros para evitar inyección SQL
+            string query = @"SELECT estado FROM dlempresa.usuario_menus WHERE id_menu = @IdMenu AND usuario = @Usuario";
+
+            // Usamos using para asegurar que la conexión se cierra después de terminar el bloque
+            using (IDbConnection dbConnection = new MySqlConnection(connectionString))
+            {
+                // Abrimos la conexión
+                dbConnection.Open();
+
+                // Ejecutamos la consulta y obtenemos el primer resultado, si existe
+                int? cEstado = dbConnection.QueryFirstOrDefault<int?>(query, new { IdMenu = nCodigo, Usuario = cRol });
+
+                // Verificamos si el resultado es 1
+                return cEstado == 1;
+            }
+        }
 
 
 

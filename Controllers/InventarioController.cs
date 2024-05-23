@@ -110,6 +110,7 @@ namespace EqCrm.Controllers
         public object GetListInventario(Inventario oInven)
         {
             string cUserConected = (string)(Session["Usuario"]);
+            string rol = (string)(Session["Rol"]);
 
             if (string.IsNullOrEmpty(cUserConected))
             {
@@ -118,13 +119,25 @@ namespace EqCrm.Controllers
 
             dapperConnect dapper = new dapperConnect();
             string DB = (string)this.Session["StringConexion"];
+            string query = "";
 
-            string query = "SELECT CONCAT(a.id_codigo,' ','') AS DATOS, a.id_codigo AS CODIGO, a.codigoe AS CODIGOE, a.numero_departe AS ALIAS, a.producto AS PRODUCTO, " +
+
+            if (dapper.DamePermisosAppDapper("95", rol))
+            {
+                query = "SELECT CONCAT(a.id_codigo,' ','') AS DATOS, a.id_codigo AS CODIGO, a.codigoe AS CODIGOE, a.numero_departe AS ALIAS, a.producto AS PRODUCTO, " +
                 "a.linea AS LINEA, IFNULL(sum(b.entrada-b.salida),0) AS EXISTENCIA, a.precio1 AS PRECIO1,a.precio2 AS PRECIO2, a.precio3 AS PRECIO3, a.precio4 AS PRECIO4, " +
-                "a.costo1 AS COSTO1, a.costo2 AS COSTO2, a.OBS " +
-                "FROM inventario a " +
-                "LEFT JOIN kardexinven b ON (a.id_codigo = b.id_codigo) " +
-                "WHERE status = 'A' ";
+                "a.costo1 AS COSTO1, a.costo2 AS COSTO2, a.OBS ";
+                
+            } else
+            {
+                query = "SELECT CONCAT(a.id_codigo,' ','') AS DATOS, a.id_codigo AS CODIGO, a.codigoe AS CODIGOE, a.numero_departe AS ALIAS, a.producto AS PRODUCTO, " +
+                "a.linea AS LINEA, IFNULL(sum(b.entrada-b.salida),0) AS EXISTENCIA, a.precio1 AS PRECIO1,a.precio2 AS PRECIO2, a.precio3 AS PRECIO3, a.precio4 AS PRECIO4, " +
+                "0.00 AS COSTO1, 0.00 AS COSTO2, a.OBS ";
+            }
+
+            query += "FROM inventario a LEFT JOIN kardexinven b ON (a.id_codigo = b.id_codigo) WHERE status = 'A' ";
+
+
 
             if (!string.IsNullOrEmpty(oInven.id_codigo))
             {

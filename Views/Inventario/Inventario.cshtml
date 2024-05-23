@@ -396,35 +396,39 @@
                                     <textarea class="form-control" rows="3" name="adicionales" id="adicionales"></textarea>
                                 </div>
 
-                                <table class="table table-bordered m-0">
-                                    <tr>
-                                        <td>
-                                            <div class="panel-container show">
-                                                <div class="panel-content">
-                                                    <div class="dz-message needsclick">
-                                                        <i class="fal fa-cloud-upload text-muted mb-3"></i> <br>
-                                                        <span class="text-uppercase">Arrastrar imagenes aquí.</span>
+                                <div id="perm_subir_foto" style="display:none">
+                                    <table class="table table-bordered m-0">
+                                        <tr>
+                                            <td>
+                                                <div class="panel-container show">
+                                                    <div class="panel-content">
+                                                        <div class="dz-message needsclick">
+                                                            <i class="fal fa-cloud-upload text-muted mb-3"></i> <br>
+                                                            <span class="text-uppercase">Arrastrar imagenes aquí.</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                                @**AGREGANDO INPUTFILE TO UPLOAD FICHA TECNICA*@
-                                <br />
-                                <div class="form-group col-md-12">
-                                    <label>Subir PDf Info Adicional</label>
-                                    <input id="nameFileUpload" type="hidden" value="0" />
-                                    <input type="file" id="fileToUpload" class="form-control" />
-                                    <button type="button" class="btn btn-primary" onclick="subirFichaTecnica()">Subir</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    @**AGREGANDO INPUTFILE TO UPLOAD FICHA TECNICA*@
+                                    <br />
+                                    <div class="form-group col-md-12">
+                                        <label>Subir PDf Info Adicional</label>
+                                        <input id="nameFileUpload" type="hidden" value="0" />
+                                        <input type="file" id="fileToUpload" class="form-control" />
+                                        <button type="button" class="btn btn-primary" onclick="subirFichaTecnica()">Subir</button>
+                                    </div>
+                                    <br />
+                                    <div class="form-group col-md-12">
+                                        <label>Subir Foto Para Documentos</label>
+                                        <input id="nameFileUpload2" type="hidden" value="0" />
+                                        <input type="file" id="fileToUpload2" class="form-control" />
+                                        <button type="button" class="btn btn-primary" onclick="subirFotoCotizacion()">Subir</button>
+                                    </div>
                                 </div>
-                                <br />
-                                <div class="form-group col-md-12">
-                                    <label>Subir Foto Para Documentos</label>
-                                    <input id="nameFileUpload2" type="hidden" value="0" />
-                                    <input type="file" id="fileToUpload2" class="form-control" />
-                                    <button type="button" class="btn btn-primary" onclick="subirFotoCotizacion()">Subir</button>
-                                </div>
+
+                                
 
                             </div>
                         </div>

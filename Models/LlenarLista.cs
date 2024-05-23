@@ -10,5 +10,9 @@ namespace EqCrm.Models
         public static List<ListaDocumentos> listaDocumentos = new List<ListaDocumentos>();
 
         public static List<RpoTrasEntreBodegas> listaRpoTrasEntreBodegas = new List<RpoTrasEntreBodegas>();
+
+        public static List<RpoAnalisisCxC> listaRpoAnalisisCxC = new List<RpoAnalisisCxC>();
+
+
     }
 }

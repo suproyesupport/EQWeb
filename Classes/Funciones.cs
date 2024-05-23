@@ -1,7 +1,9 @@
+using Dapper;
 using DevExpress.CodeParser;
 using EqCrm.ConsultaNitInfile;
 using EqCrm.Models;
 using EqCrm.NitsInfile;
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -793,8 +795,13 @@ namespace EqCrm
         }
 
 
-        public bool DamePermisosApp(string nCodigo, string cRol, string oDb)
+        public bool DamePermisosApp(string nCodigo, string cRol)
         {
+            ConexionMySQL conexionMySql = new ConexionMySQL();
+
+            string DB = conexionMySql.generarStringDlempresa();
+
+
             // Declaramos una variable para guardar el numero total de registros
             int cEstado = 0;
 
@@ -803,7 +810,7 @@ namespace EqCrm
             string instruccionSQL = "SELECT estado FROM dlempresa.usuario_menus WHERE id_menu='" + nCodigo.ToString() + "'";
             instruccionSQL += " AND usuario = '" + cRol + "'";
 
-            mysql.EjecutarLectura(instruccionSQL, oDb);
+            mysql.EjecutarLectura(instruccionSQL, DB);
 
             // Verificamos si la consulta obtuvo resultados
             if (mysql.consulta != null)
@@ -832,6 +839,10 @@ namespace EqCrm
             // Devolvemos la variable con el valor obtenido
 
         }
+
+
+
+
 
 
 

@@ -244,6 +244,7 @@
     <Content Include="js\POS\funciones_crear_ventasPosC.js" />
     <Content Include="js\POS\funciones_nota_credito.js" />
     <Content Include="js\POS_SV\func_crear_ventas.js" />
+    <Content Include="js\ReporteAnalisisCxC.js" />
     <Content Include="js\scripts.js" />
     <Content Include="kendo-ui-license.js" />
     <Content Include="media\sound\bigbox.mp3" />
@@ -1156,6 +1157,7 @@
     <Content Include="Views\LineaInventario\LineaInventario.cshtml" />
     <Content Include="Views\POS_SV\Operaciones_SV\CrearVentas.cshtml" />
     <Content Include="Views\MnttoClientes\MnttoClientes.cshtml" />
+    <Content Include="Views\ReporteAnalisisCxC\ReporteAnalisisCxC.cshtml" />
     <None Include="Web References\ConsultaNitInfile\ingfaceWsServices.wsdl" />
     <None Include="Web References\ConsultaNitInfile\ingfaceWsServices.xsd">
       <SubType>Designer</SubType>
@@ -1372,6 +1374,7 @@
     <Compile Include="Controllers\PromotoresController.cs" />
     <Compile Include="Controllers\ProspectoController.cs" />
     <Compile Include="Controllers\ReportDocumentsController.cs" />
+    <Compile Include="Controllers\ReporteAnalisisCxCController.cs" />
     <Compile Include="Controllers\ReporteClientesxSectorController.cs" />
     <Compile Include="Controllers\ReporteGeneralFacturasController.cs" />
     <Compile Include="Controllers\ReporteListadoDeCobradoresCController.cs" />
@@ -1468,6 +1471,7 @@
     <Compile Include="Models\POS\Vendedor.cs" />
     <Compile Include="Models\Prospectos.cs" />
     <Compile Include="Models\ResultCrud.cs" />
+    <Compile Include="Models\RpoAnalisisCxC.cs" />
     <Compile Include="Models\RpoGenFacturas.cs" />
     <Compile Include="Models\RpoListadoDeCobradoresC.cs" />
     <Compile Include="Models\RpoSabanaFact.cs" />
